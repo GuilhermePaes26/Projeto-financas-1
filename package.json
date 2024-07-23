@@ -1,0 +1,23 @@
+{
+  "name": "exercicio-25",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "json-server": "json-server --watch dba.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "json-server": "^0.17.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Converter Input em Float</title>
+  </head>
+  <body>
+    <form id="transactionForm" method="post" action="<%= url %>">
+      <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+          <input class="input" type="text" name="transaction[name]" placeholder="Nome da Transação" value="<%= transaction.name %>" />
+          <% if (transaction.error && transaction.error.hasOwnProperty('name')) { %>
+          <p class="is-danger help"><%= transaction.error.name.message %></p>
+          <% } %>
+
+          <input class="input" type="text" id="amount" name="transaction[amount]" placeholder="Valor da Transação" value="<%= transaction.amount %>" />
+          <% if (transaction.error && transaction.error.hasOwnProperty('amount')) { %>
+          <p class="is-danger help"><%= transaction.error.amount.message %></p>
+          <% } %>
+        </div>
+      </div>
+      <button type="submit" class="button is-success">Salvar</button>
+      <a href="/transaction" class="button">Cancelar</a>
+    </form>
+
+    <script>
+      document.getElementById("transactionForm").addEventListener("submit", function (event) {
+        var amountInput = document.getElementById("amount");
+        var amountValue = parseFloat(amountInput.value);
+
+        if (isNaN(amountValue)) {
+          event.preventDefault();
+          alert("Por favor, insira um valor numérico válido para o valor da transação.");
+        } else {
+          amountInput.value = amountValue;
+        }
+      });
+    </script>
+  </body>
+</html>
